@@ -1,36 +1,68 @@
-# Lab 1 - Introduction to Computer Networks
+# Lab 1 - Direct PC-to-PC Connection
 
-## Overview
+## Objectives
 
-This lab demonstrates the foundational concept of a computer network using a simple
-two-PC topology built in Cisco Packet Tracer.
+- Connect two PCs directly without a switch
+- Assign static IP addresses manually
+- Test connectivity with ping
+- Understand what a crossover cable does and why it is needed here
 
-## What is a Computer Network?
+## Topology
 
-A computer network is a digital telecommunications system that connects nodes — such
-as PCs, servers, or routers — allowing them to communicate and share resources.
+- 2x PCs
 
-## Lab Topology
+## Steps
 
-Two PCs (PC0 and PC1) are connected directly via a crossover cable, forming the most
-basic network possible: a peer-to-peer (P2P) connection.
+1. Add 2x PC-PT devices to the canvas.
 
-## Key Concepts Demonstrated
+2. From Connections, choose Copper Cross-Over cable. Connect PC0 FastEthernet0 to PC1 FastEthernet0.
 
-### Client-Server Model
+![text](/Markdown%20_Images/Lab_1_Images/Lab1pt1.png)
 
-In a network, devices take on roles depending on the interaction:
+3. Click PC0 → Desktop → IP Configuration. Enter IP 192.168.1.10, Subnet 255.255.255.0.
 
-- **Client** – the device _requesting_ a resource
-- **Server** – the device _providing_ a resource
+![text](/Markdown%20_Images/Lab_1_Images/Lab1pt2.png)
 
-These roles are not fixed. Any PC can act as either a client or a server depending
-on the context.
+4. Repeat for PC1 with IP 192.168.1.20.
 
-## What I Learned
+![text](/Markdown%20_Images/Lab_1_Images/Lab1pt2.2.png)
 
-Even the simplest two-node network illustrates how all larger networks function at
-their core — devices communicate by taking on client and server roles to request and
-deliver resources.
+5. Click PC0 → Desktop → Command Prompt. Run:
+   ping 192.168.1.20
 
-![Alt Text](./Markdown%20_Images/Lab%201.png)
+![text](/Markdown%20_Images/Lab_1_Images/Lab1pt3.png)
+
+## Breaking the Connection
+
+- I wanted to explore what would happen if the two PCs were placed on different networks.
+
+![text](/Markdown%20_Images/Lab_1_Images/Lab1pt4.png)
+
+- To test this, I opened the Command Prompt on PC0 and attempted to ping the new IP address assigned to PC1.
+
+![text](/Markdown%20_Images/Lab_1_Images/Lab1pt5.png)
+
+- The ping failed, so I investigated why the devices could no longer communicate.
+
+- The issue is related to the subnet mask.
+
+- With a subnet mask of 255.255.255.0 (/24), devices must share the same network portion of the IP address to communicate directly.
+
+- PC0 is on the 192.168.1.0/24 network, while PC1 is on a different network.
+
+- Because the PCs are on separate networks and there is no router available to route traffic between them, the ping requests fail and the packets are dropped.
+
+## What I learned
+
+- Why a crossover cable is needed when connecting similar devices
+
+- Manually configure static IP addresses
+- How to use the ping command
+
+- Devices must be in the same subnet to communicate directly without a router
+
+- How a subnet mask determines whether devices are on the same network
+
+- When devices are placed on different networks, a router is required to forward traffic between them
+
+- How to troubleshoot basic connectivity issues by checking cable types, IP addresses, subnet masks, and ping results
