@@ -17,30 +17,30 @@
 
 2. From Connections, choose Copper Cross-Over cable. Connect PC0 FastEthernet0 to PC1 FastEthernet0.
 
-![text](/Markdown%20_Images/Lab_1_Images/Lab1pt1.png)
+![text](/Markdown%20_Images/Lab_1/Lab1pt1.png)
 
 3. Click PC0 → Desktop → IP Configuration. Enter IP 192.168.1.10, Subnet 255.255.255.0.
 
-![text](/Markdown%20_Images/Lab_1_Images/Lab1pt2.png)
+![text](/Markdown%20_Images/Lab_1/Lab1pt2.png)
 
 4. Repeat for PC1 with IP 192.168.1.20.
 
-![text](/Markdown%20_Images/Lab_1_Images/Lab1pt2.2.png)
+![text](/Markdown%20_Images/Lab_1/Lab1pt2.2.png)
 
 5. Click PC0 → Desktop → Command Prompt. Run:
    ping 192.168.1.20
 
-![text](/Markdown%20_Images/Lab_1_Images/Lab1pt3.png)
+![text](/Markdown%20_Images/Lab_1/Lab1pt3.png)
 
 ## Breaking the Connection
 
 - I wanted to explore what would happen if the two PCs were placed on different networks.
 
-![text](/Markdown%20_Images/Lab_1_Images/Lab1pt4.png)
+![text](/Markdown%20_Images/Lab_1/Lab1pt4.png)
 
 - To test this, I opened the Command Prompt on PC0 and attempted to ping the new IP address assigned to PC1.
 
-![text](/Markdown%20_Images/Lab_1_Images/Lab1pt5.png)
+![text](/Markdown%20_Images/Lab_1/Lab1pt5.png)
 
 - The ping failed, so I investigated why the devices could no longer communicate.
 
